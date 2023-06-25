@@ -1,26 +1,16 @@
-import { Client, LocalAuth, Message } from "whatsapp-web.js";
-const qrcode = require('qrcode-terminal');
+import dotenv from 'dotenv';
+import Server from './models/server.model';
+import botClient from './models/whatsapp.bot.model';
+dotenv.config();
 
-const client = new Client({
-    authStrategy: new LocalAuth()
-});
+const server = new Server();
+server.listen();
+botClient.initialize();
 
-client.on('qr', (qr: unknown) => {
-    qrcode.generate(qr, {small: true});
-});
-
-client.on('ready', () => {
-    console.log('Client is ready!');
-});
-
-client.on('message', (message: Message) => {
-	console.warn(message);
-    const clientMessage = message.body; 
-    if (clientMessage.toLocaleUpperCase() === 'HOLA') {
-        //message.reply(`I'm a WhatsApp Bot`);
-        client.sendMessage(message.from, 'pong');
-    }
-});
-
-client.initialize();
+//TODO: add methods to validate if user or group exist in db
+//TODO: configure chatgpt api
+//TODO: create apis to communicate with chatgpt service
+//TODO: configure weather provider
+//TODO: create apis to communicate with weather service
+//TODO: write documentation
  
