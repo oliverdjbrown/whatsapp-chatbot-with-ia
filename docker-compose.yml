@@ -15,4 +15,4 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
       MONGO_INITDB_DATABASE: chatbot
     volumes:
-      - C:\Projects\Node\whatsapp-chatbot-with-ia/data:/data/db
+      - C:\Users\akuma\Documents\Projects\Node\whatsapp-chatbot-with-ia/data:/data/db

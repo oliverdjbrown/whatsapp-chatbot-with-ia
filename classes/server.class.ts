@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import cors from "cors";
+import "dotenv/config";
 import userRoutes from "../routes/user.routes";
 import groupRoutes from "../routes/group.routes";
 import dbConnection from "../database/connection";
@@ -14,7 +15,7 @@ class Server {
     this.port = process.env.PORT || "8080";
 
     this.dbConnection();
-    this.middlewares();
+    this.middleware();
     this.routes();
   }
 
@@ -22,7 +23,7 @@ class Server {
     await dbConnection();
   }
 
-  middlewares() {
+  middleware() {
     this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.static("public"));

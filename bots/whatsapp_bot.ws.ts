@@ -11,7 +11,7 @@ botClient.on('qr', (qr: unknown) => {
 });
 
 botClient.on('ready', () => {
-    console.log('Whatsapp Client is ready!');
+    console.log('Whatsapp Client is ready!!!');
 });
 
 botClient.on('message', async (message: Message) => {

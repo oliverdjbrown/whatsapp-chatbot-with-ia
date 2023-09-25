@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import Server from './models/server.model';
-import botClient from './models/whatsapp.bot.model';
+import Server from './classes/server.class';
+import botClient from './bots/whatsapp_bot.ws';
 dotenv.config();
 
 const server = new Server();
